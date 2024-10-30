@@ -14,4 +14,7 @@ const guessInput = document.getElementById("guess-input")
 const guessBtn = document.getElementById("guess-btn")
 
 
-
+    //updaterar visning av felaktiga bokstäver
+const updateIncorrectLettersDisplay = () => {
+    incorrectLettersDisplay.textContent = `Felaktiga bokstäver: ${incorrectLetters.join(", ")}`
+}
