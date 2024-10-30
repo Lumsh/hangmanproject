@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  body section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  #word-display,
+  #incorrect-letters,
+  #guess-input {
+    padding: 1rem;
+    width: 15rem;
+    border-radius: 1rem;
+  }
+  
+  #guess-btn {
+    padding: 1rem;
+    width: 15rem;
+    margin-top: 1rem;
+    border: none;
+    background-color: green;
+    color: white;
+    border-radius: 1rem;
+  }
