@@ -18,3 +18,14 @@ const guessBtn = document.getElementById("guess-btn")
 const updateIncorrectLettersDisplay = () => {
     incorrectLettersDisplay.textContent = `Felaktiga bokstäver: ${incorrectLetters.join(", ")}`
 }
+    // Kontrollerar om spelaren vunnit eller förlorat
+const checkGameStatus = () => {
+    if (selectedWord.split("").every(letter => guessedLetters.includes(letter))) {
+        alert("grattis du vann!")
+        resetGame()
+    } else if (errors >= maxErrors) {
+        alert(`Du förlorade! ordet var ${selectedWord}`)
+        resetGame();
+        console.log(checkGameStatus)
+    }
+}
