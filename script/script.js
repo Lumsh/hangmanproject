@@ -1,5 +1,5 @@
 
-const words = ["javascript", "programmering", "kodning", "dator", "utveckling"]; //Alex creates an array of words
+const words = ["javascript", "programmering", "coding", "computer", "development"]; //Alex creates an array of words
 let selectedWord = words[Math.floor(Math.random() * words.length)]  //Alex Picks a random word from the array
 let guessedLetters = [] //Alex Empty array to store guessedLetters
 let incorrectLetters = [] //Alex Empty array to store incorrectLetters
@@ -53,7 +53,7 @@ const handleGuess = () => {
 
 // uppdaterar visningen av felaktiga bokstäver
     const updateIncorrectLettersDisplay = () => {
-    incorrectLettersDisplay.textContent = `Felaktiga bokstäver: ${incorrectLetters.join(", ")}`
+    incorrectLettersDisplay.textContent = `Incorrect letters: ${incorrectLetters.join(", ")}`
 }
 
 // kontrollera om spelaren har vunnit eller förlorat
@@ -61,7 +61,7 @@ const checkGameStatus = () => {
     if (selectedWord.split("").every(letter => guessedLetters.includes(letter))) {
         alert("grattis du vann!")
         
-        let answer = window.confirm("Vill du spela igen?");
+        let answer = window.confirm("Play again???");
 
         if (answer) {
             resetGame()// User clicked OK
@@ -69,8 +69,8 @@ const checkGameStatus = () => {
             // User clicked Cancel
         }
     } else if (errors >= maxErrors) {
-        alert(`Du förlorade! Ordet var '${selectedWord}'`);
-        let answer = window.confirm("Vill du spela igen?");
+        alert(`You loose, the word was: '${selectedWord}'`);
+        let answer = window.confirm("Play again??");
 
         if (answer) {
             resetGame()// User clicked OK
@@ -85,7 +85,7 @@ const checkGameStatus = () => {
 const attemptsDisplay = document.getElementById("attempts-display");
 
 const updateAttemptsDisplay = () => {
-    attemptsDisplay.textContent = `Försök kvar: ${maxErrors - errors}`;
+    attemptsDisplay.textContent = `Attemts left: ${maxErrors - errors}`;
 }
 
 // uppdaterar hangman SVG-bilden beroende på fel
