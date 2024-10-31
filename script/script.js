@@ -14,6 +14,17 @@ const guessInput = document.getElementById("guess-input")
 const guessBtn = document.getElementById("guess-btn")
 
 
+
+
+
+const updateWordDisplay = () => {
+    wordDisplay.textContent = selectedWord
+        .split("")
+        .map(letter => guessedLetters.includes(letter) ? letter : "_")
+        .join(" ")
+}
+
+
 // funktion för uppdatera ordet som visas på skärmen
 const updateWordDisplay = () => {
     const displayWord = selectedWord
@@ -49,7 +60,7 @@ const handleGuess = () => {
     const updateIncorrectLettersDisplay = () => {
     incorrectLettersDisplay.textContent = `Felaktiga bokstäver: ${incorrectLetters.join(", ")}`
 }
-// kontrollera om spelaren har vunnit eller förlorat
+// Kontrollerar om spelaren vunnit eller förlorat
 const checkGameStatus = () => {
     if (selectedWord.split("").every(letter => guessedLetters.includes(letter))) {
         alert("grattis du vann!")
