@@ -18,6 +18,41 @@
   
   }
 
+  .container__body{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(4,200px);
+  }
+
+
+  .container__game {
+    grid-column: 1 / 5;
+    grid-row: 3 / 4;
+
+  }
+
+
+  .container__svg{
+    width: 50%;
+    height: 50%;
+    
+
+  }
+.container__title{
+  grid-row: 1;
+  grid-column: 1 / 5;  
+  color: darkgreen;
+  font-weight: bolder;
+  font-size: x-large;
+  display: flex;
+  flex-direction: row-reverse;
+  object-fit: contain;
+  justify-content: space-evenly;
+}
+
+.ninja{
+  mix-blend-mode: multiply;
+}
  
   
   body section {
