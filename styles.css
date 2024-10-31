@@ -2,12 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
-    
- 
-    
- 
-    
+  
   }
   
   body {
@@ -20,7 +15,7 @@
   
   }
 
-  .container__body{
+  .container__body {
     display: grid;
     grid-template-columns: repeat(4,1fr);
     grid-template-rows: repeat(5,150px);
@@ -36,13 +31,13 @@
   }
 
 
-  .container__svg{
+  .container__svg {
     width: 50%;
     height: 50%;
     
-
   }
-.container__title{
+
+.container__title {
   grid-row: 1;
   grid-column: 1 / 5;  
   color: darkgreen;
@@ -54,7 +49,7 @@
   justify-content: space-evenly;
 }
 
-.ninja{
+.ninja {
   mix-blend-mode: multiply;
 }
  
