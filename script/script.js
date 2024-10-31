@@ -37,6 +37,7 @@ const handleGuess = () => {
     if (guess && !guessedLetters.includes(guess) && !incorrectLetters.includes(guess)) {
         if (selectedWord.includes(guess)) {
             guessedLetters.push(guess)
+            console.log('rätt gissning: ${guess}')
         } else {
             incorrectLetters.push(guess)
             errors++
@@ -44,7 +45,7 @@ const handleGuess = () => {
         }
         updateWordDisplay()
         updateIncorrectLettersDisplay()
-        updateAttemptsDisplay();
+        updateAttemptsDisplay()
         checkGameStatus()
     }
 }
@@ -60,6 +61,7 @@ const checkGameStatus = () => {
         alert("grattis du vann!")
         resetGame()
     } else if (errors >= maxErrors) {
+        updateAttemptsDisplay();
         alert(`Du förlorade! Ordet var '${selectedWord}'`);
         let answer = window.confirm("Vill du spela igen?");
 
