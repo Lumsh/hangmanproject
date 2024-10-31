@@ -57,28 +57,29 @@ const handleGuess = () => {
 
 // kontrollera om spelaren har vunnit eller förlorat
 const checkGameStatus = () => {
+   
     if (selectedWord.split("").every(letter => guessedLetters.includes(letter))) {
+
+        setTimeout(() => {
         alert("grattis du vann!")
-        
         let answer = window.confirm("Vill du spela igen?");
-
         if (answer) {
-            resetGame()// User clicked OK
-        } else {
-            // User clicked Cancel
-        }
+            resetGame();
+        } 
+        }, 100);
+    
     } else if (errors >= maxErrors) {
-        alert(`Du förlorade! ordet var ${selectedWord}`)
-        
-        let answer = window.confirm("Vill du spela igen?");
-
-        if (answer) {
-            resetGame()// User clicked OK
-        } else {
-            // User clicked Cancel
-        }
-                
-     }
+        // Show the final part before ending
+        document.getElementById("legs").style.display = "block";
+        // Short delay before showing the game over message
+        setTimeout(() => {
+            alert(`Du förlorade! ordet var ${selectedWord}`);
+            let answer = window.confirm("Vill du spela igen?");
+            if (answer) {
+                resetGame();
+            }
+        }, 100); // Small delay to ensure the part is visible
+    }
 }
 
  // visar antalet försökt som är kvar // Robin
@@ -91,8 +92,13 @@ const updateAttemptsDisplay = () => {
 // uppdaterar hangman SVG-bilden beroende på fel
 function updateHangmanImage() {
     const parts = ["ground", "scaffold", "head", "body", "arms", "legs"];
-    if (errors > 0 && errors <= maxErrors) {
-        document.getElementById(parts[errors - 1]).style.display = "block";
+    // First hide all parts
+    parts.forEach(part => {
+        document.getElementById(part).style.display = "none";
+    });
+    // Then show only the parts up to the current number of errors
+    for (let i = 0; i < errors; i++) {
+        document.getElementById(parts[i]).style.display = "block";
     }
 }
 
