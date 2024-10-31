@@ -14,10 +14,63 @@ const guessInput = document.getElementById("guess-input")
 const guessBtn = document.getElementById("guess-btn")
 
 
+
+
+
+const updateWordDisplay = () => {
+    wordDisplay.textContent = selectedWord
+        .split("")
+        .map(letter => guessedLetters.includes(letter) ? letter : "_")
+        .join(" ")
+}
+
+
 //updaterar visning av felaktiga bokstäver
 const updateIncorrectLettersDisplay = () => {
     incorrectLettersDisplay.textContent = `Felaktiga bokstäver: ${incorrectLetters.join(", ")}`
 }
+
+// Handle guess function
+const handleGuess = () => {
+    const guess = guessInput.value.toLowerCase()
+    guessInput.value = "" // Clear input field
+
+    // Check if input is valid
+    if (!guess || guess.length !== 1 || !guess.match(/[a-z]/i)) {
+        alert("Var god ange en giltig bokstav")
+        return
+    }
+
+    // Check if letter has already been guessed
+    if (guessedLetters.includes(guess)) {
+        alert("Du har redan gissat på denna bokstav")
+        return
+    }
+
+    // Add letter to guessed letters
+    guessedLetters.push(guess)
+
+    // Check if guess is correct
+    if (selectedWord.includes(guess)) {
+        updateWordDisplay()
+    } else {
+        errors++
+        incorrectLetters.push(guess)
+        updateIncorrectLettersDisplay()
+        updateHangmanImage()
+    }
+
+    checkGameStatus()
+}
+
+
+
+
+
+
+
+
+
 // Kontrollerar om spelaren vunnit eller förlorat
 const checkGameStatus = () => {
     if (selectedWord.split("").every(letter => guessedLetters.includes(letter))) {
