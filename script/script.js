@@ -1,5 +1,5 @@
 
-const words = ["javascript", "programmering", "kodning", "dator", "utveckling"]; //Alex creates an array of words
+const words = ["javascript", "programmering", "coding", "computer", "development"]; //Alex creates an array of words
 let selectedWord = words[Math.floor(Math.random() * words.length)]  //Alex Picks a random word from the array
 let guessedLetters = [] //Alex Empty array to store guessedLetters
 let incorrectLetters = [] //Alex Empty array to store incorrectLetters
@@ -37,6 +37,7 @@ const handleGuess = () => {
     if (guess && !guessedLetters.includes(guess) && !incorrectLetters.includes(guess)) {
         if (selectedWord.includes(guess)) {
             guessedLetters.push(guess)
+            console.log('rätt gissning: ${guess}')
         } else {
             incorrectLetters.push(guess)
             errors++
@@ -44,7 +45,7 @@ const handleGuess = () => {
         }
         updateWordDisplay()
         updateIncorrectLettersDisplay()
-        updateAttemptsDisplay();
+        updateAttemptsDisplay()
         checkGameStatus()
     }
 }
@@ -52,7 +53,7 @@ const handleGuess = () => {
 
 // uppdaterar visningen av felaktiga bokstäver
     const updateIncorrectLettersDisplay = () => {
-    incorrectLettersDisplay.textContent = `Felaktiga bokstäver: ${incorrectLetters.join(", ")}`
+    incorrectLettersDisplay.textContent = `Incorrect letters: ${incorrectLetters.join(", ")}`
 }
 
 // kontrollera om spelaren har vunnit eller förlorat
@@ -86,7 +87,7 @@ const checkGameStatus = () => {
 const attemptsDisplay = document.getElementById("attempts-display");
 
 const updateAttemptsDisplay = () => {
-    attemptsDisplay.textContent = `Försök kvar: ${maxErrors - errors}`;
+    attemptsDisplay.textContent = `Attemts left: ${maxErrors - errors}`;
 }
 
 // uppdaterar hangman SVG-bilden beroende på fel
