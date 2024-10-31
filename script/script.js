@@ -83,7 +83,6 @@ const updateAttemptsDisplay = () => {
 
 // uppdaterar hangman SVG-bilden beroende på fel
 function updateHangmanImage() {
-    // Korrekt ordning: huvud, kropp, armar, ben
     const parts = ["ground", "scaffold", "head", "body", "arms", "legs"];
     if (errors > 0 && errors <= maxErrors) {
         document.getElementById(parts[errors - 1]).style.display = "block";
@@ -103,8 +102,7 @@ const resetGame = () => {
     updateWordDisplay()
     updateIncorrectLettersDisplay()
     document.querySelectorAll("path, ellipse").forEach(part => (part.style.display = "none"))
-    document.getElementById("ground").style.display = "block";
-    updateAttemptsDisplay();
+    //document.getElementById("ground").style.display = "block"; Om vi vill visa ground eller inte?
 }
 
 
