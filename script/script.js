@@ -17,12 +17,6 @@ const guessBtn = document.getElementById("guess-btn")
 
 
 
-const updateWordDisplay = () => {
-    wordDisplay.textContent = selectedWord
-        .split("")
-        .map(letter => guessedLetters.includes(letter) ? letter : "_")
-        .join(" ")
-}
 
 
 // funktion för uppdatera ordet som visas på skärmen
