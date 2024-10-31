@@ -85,7 +85,7 @@ const checkGameStatus = () => {
 
 // uppdaterar hangman SVG-bilden beroende på fel
 function updateHangmanImage() {
-    const parts = ["head", "body", "arms", "legs"];
+    const parts = ["ground", "scaffold", "head", "body", "arms", "legs"];
     if (errors > 0 && errors <= maxErrors) {
         document.getElementById(parts[errors - 1]).style.display = "block";
     }
@@ -101,7 +101,7 @@ const resetGame = () => {
     updateWordDisplay()
     updateIncorrectLettersDisplay()
     document.querySelectorAll("path, ellipse").forEach(part => (part.style.display = "none"))
-    document.getElementById("ground").style.display = "block";
+    //document.getElementById("ground").style.display = "block";  Kan ha den om vill att "ground" ska visas från början?
 }
 
 
