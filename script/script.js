@@ -55,23 +55,30 @@ const handleGuess = () => {
     const updateIncorrectLettersDisplay = () => {
     incorrectLettersDisplay.textContent = `Felaktiga bokstäver: ${incorrectLetters.join(", ")}`
 }
-// Kontrollerar om spelaren vunnit eller förlorat
+
+// kontrollera om spelaren har vunnit eller förlorat
 const checkGameStatus = () => {
     if (selectedWord.split("").every(letter => guessedLetters.includes(letter))) {
         alert("grattis du vann!")
-        resetGame()
+        
+        let answer = window.confirm("Vill du spela igen?");
+
+        if (answer) {
+            resetGame()// User clicked OK
+        } else {
+            // User clicked Cancel
+        }
     } else if (errors >= maxErrors) {
-        updateAttemptsDisplay();
         alert(`Du förlorade! Ordet var '${selectedWord}'`);
         let answer = window.confirm("Vill du spela igen?");
 
-if (answer) {
-    resetGame()// User clicked OK
-} else {
-     // User clicked Cancel
-}
-
-    }
+        if (answer) {
+            resetGame()// User clicked OK
+        } else {
+            // User clicked Cancel
+        }
+                
+     }
 }
 
  // visar antalet försökt som är kvar // Robin
