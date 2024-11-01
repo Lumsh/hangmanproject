@@ -24,9 +24,9 @@ const updateWordDisplay = () => {
     .map((letter) => (guessedLetters.includes(letter) ? letter : "_"))
     .join(" ");
   wordDisplay.textContent = displayWord;
-};
-
-// Check the guesses
+}
+//Robin
+// Check the guesses if player guessed right or wrong!
 const handleGuess = () => {
   const guess = guessInput.value.toLowerCase();
   guessInput.value = "";
@@ -51,7 +51,10 @@ const handleGuess = () => {
   }
 };
 
-// Update incorrect letters
+
+
+
+// Update display of incorrect letters
 const updateIncorrectLettersDisplay = () => {
   incorrectLettersDisplay.textContent = `Incorrect letters: ${incorrectLetters.join(
     ", "
@@ -91,6 +94,8 @@ const updateAttemptsDisplay = () => {
   attemptsDisplay.textContent = `Attemts left: ${maxErrors - errors}`;
 };
 
+
+//karl
 // Updates hangman SVG-img
 function updateHangmanImage() {
   const parts = ["ground", "scaffold", "head", "body", "arms", "legs"];
