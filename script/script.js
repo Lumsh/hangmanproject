@@ -67,8 +67,8 @@ const checkGameStatus = () => {
     selectedWord.split("").every((letter) => guessedLetters.includes(letter))
   ) {
     setTimeout(() => {
-      alert("grattis du vann!");
-      let answer = window.confirm("Vill du spela igen?");
+      alert("Congratulations, you won!");
+      let answer = window.confirm("Do you want to play again?");
       if (answer) {
         resetGame();
       }
@@ -78,8 +78,8 @@ const checkGameStatus = () => {
     document.getElementById("legs").style.display = "block";
     // Short delay before showing the game over message
     setTimeout(() => {
-      alert(`Du förlorade! ordet var ${selectedWord}`);
-      let answer = window.confirm("Vill du spela igen?");
+      alert(`You lost! The correct word was ${selectedWord}`);
+      let answer = window.confirm("Do you want to play again?");
       if (answer) {
         resetGame();
       }
